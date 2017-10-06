@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.dy.sdata.entities.Book;
 
 @Repository
-public interface BookResponsitory extends JpaRepository<Book, Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 
 }

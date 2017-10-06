@@ -9,7 +9,7 @@ import com.dy.sdata.entities.Book;
 public class BookService {
 
 	@Autowired
-	private BookResponsitory repo;
+	private BookRepository repo;
 	
 	public void save (Book book) {
 		this.repo.save(book);
