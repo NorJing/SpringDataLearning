@@ -79,5 +79,11 @@ public class Book {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", publishDate=" + publishDate + ", pageCount="
+				+ pageCount + ", price=" + price + "]";
+	}
 	
 }
