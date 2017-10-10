@@ -51,7 +51,12 @@ public class Application {
 //		System.out.println(bookRepository.findByTitle("A Tale of Two Cities"));
 		
 		// String Operations
-		for(Book b:bookRepository.findByTitleContaining("Tale")) {
+//		for(Book b:bookRepository.findByTitleContaining("Tale")) {
+//			System.out.println(b);
+//		}
+		
+		// Relational Operations
+		for(Book b:bookRepository.findByPageCountBetween(101, 499)) {
 			System.out.println(b);
 		}
 	}

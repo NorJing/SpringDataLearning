@@ -30,4 +30,17 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByTitleEndingWith(String title);
 	
 	public List<Book> findByTitleIgnoreCase(String title);
+	
+// Need to have implemented Comparable interface
+	public List<Book> findByPageCountEquals(int pageCount);
+	
+	public List<Book> findByPageCountGreaterThan(int pageCount);
+	
+	public List<Book> findByPageCountLessThan(int pageCount);
+	
+	public List<Book> findByPageCountGreaterThanEqual(int pageCount);
+	
+	public List<Book> findByPageCountLessThanEqual(int pageCount);
+	
+	public List<Book> findByPageCountBetween(int min, int max);
 }
