@@ -19,7 +19,6 @@ public class Application {
 //		Book book = new Book("First book", new Date(), 33, new BigDecimal("26.60"));
 //		service.save(book);
 		
-		
 		BookRepository bookRepository = context.getBean(BookRepository.class);
 		
 		// 2. Use repository to find, create, modify, delete entity
@@ -42,7 +41,7 @@ public class Application {
 //		bookRepository.delete(bookRepository.findOne(1L));
 		
 //		bookRepository.deleteAll();
-		bookRepository.deleteAllInBatch();
+//		bookRepository.deleteAllInBatch();
 		for(Book book:bookRepository.findAll()) {
 			System.out.println(book);
 		}
