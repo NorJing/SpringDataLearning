@@ -10,6 +10,8 @@ import com.dy.sdata.entities.Book;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 	
+	// String Operations
+	
 //	select book0_.BOOK_ID as BOOK_ID1_0_, 
 //		   book0_.PAGE_COUNT as PAGE_COU2_0_, 
 //		   book0_.PRICE as PRICE3_0_, 
@@ -31,7 +33,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	public List<Book> findByTitleIgnoreCase(String title);
 	
-// Need to have implemented Comparable interface
+	// Relational Operations
+	
+	// Need to have implemented Comparable interface
 	public List<Book> findByPageCountEquals(int pageCount);
 	
 	public List<Book> findByPageCountGreaterThan(int pageCount);
@@ -43,4 +47,11 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByPageCountLessThanEqual(int pageCount);
 	
 	public List<Book> findByPageCountBetween(int min, int max);
+	
+	// Logical Operations
+	public List<Book> findByTitleContainingOrTitleContaining(String title1, String title2);
+	
+	public List<Book> findByTitleContainingAndPageCountGreaterThan(String title, int pageCount);
+	
+	public List<Book> findByTitleNot(String title);
 }

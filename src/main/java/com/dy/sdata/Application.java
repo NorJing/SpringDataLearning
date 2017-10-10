@@ -56,7 +56,12 @@ public class Application {
 //		}
 		
 		// Relational Operations
-		for(Book b:bookRepository.findByPageCountBetween(101, 499)) {
+//		for(Book b:bookRepository.findByPageCountBetween(101, 499)) {
+//			System.out.println(b);
+//		}
+		
+		// Logical Operations
+		for(Book b:bookRepository.findByTitleNot("Tale")) {
 			System.out.println(b);
 		}
 	}
