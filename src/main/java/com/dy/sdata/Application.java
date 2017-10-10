@@ -42,10 +42,13 @@ public class Application {
 		
 //		bookRepository.deleteAll();
 //		bookRepository.deleteAllInBatch();
-		for(Book book:bookRepository.findAll()) {
-			System.out.println(book);
-		}
 		
+//		for(Book book:bookRepository.findAll()) {
+//			System.out.println(book);
+//		}
+		
+		// Derived query
+		System.out.println(bookRepository.findByTitle("A Tale of Two Cities"));
 	}
 
 }
