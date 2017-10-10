@@ -48,7 +48,12 @@ public class Application {
 //		}
 		
 		// Derived query
-		System.out.println(bookRepository.findByTitle("A Tale of Two Cities"));
+//		System.out.println(bookRepository.findByTitle("A Tale of Two Cities"));
+		
+		// String Operations
+		for(Book b:bookRepository.findByTitleContaining("Tale")) {
+			System.out.println(b);
+		}
 	}
 
 }
