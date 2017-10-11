@@ -27,9 +27,9 @@ public class Application {
 		// Book book = bookRepository.findOne(1L);
 		// List<Book> books = bookRepository.findAll();
 		
-//		List<Book> books = BookUtil.create(5);		
-//		bookRepository.save(books);
-//
+		List<Book> books = BookUtil.create(5);		
+		bookRepository.save(books);
+
 //		books = bookRepository.findAll();
 //		for(Book book1:books) {
 //			if(book1.getBookId().equals(new Long("10"))){
@@ -79,9 +79,20 @@ public class Application {
 //		}
 	
 		// Ordering result
-		for(Book b:bookRepository.findByTitleContainingOrderByTitleDesc("the")) {
+//		for(Book b:bookRepository.findByTitleContainingOrderByTitleDesc("the")) {
+//			System.out.println(b);
+//		}
+	
+//		System.out.println(bookRepository.findTopByOrderByPageCountDesc());
+//		System.out.println(bookRepository.findFirstByOrderByPageCountAsc());
+//		System.out.println(bookRepository.findOneByOrderByPageCountAsc());
+		
+//		for(Book b:bookRepository.findTop6ByOrderByPriceDesc()) {
+//			System.out.println(b);
+//		}
+		
+		for(Book b:bookRepository.findTop5ByTitleContainingOrderByPriceAsc("the")) {
 			System.out.println(b);
 		}
-		
 	}
 }
