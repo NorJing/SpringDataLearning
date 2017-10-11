@@ -13,7 +13,7 @@ import com.dy.sdata.entities.Book;
 public class Application {
 
 	@SuppressWarnings("resource")
-	public static void main(String[] args) throws ParseException{
+	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 		
 		// 1. Use BookService to create an entity
@@ -68,16 +68,20 @@ public class Application {
 //		}
 	
 		// Date comparasion
-		try {
-			Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/1954");
-			Date date2 = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/1955");
-			for(Book b:bookRepository.findByPublishDateBetween(date1, date2)) {
-				System.out.println(b);
-			}
-		}catch(ParseException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/1954");
+//			Date date2 = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/1955");
+//			for(Book b:bookRepository.findByPublishDateBetween(date1, date2)) {
+//				System.out.println(b);
+//			}
+//		}catch(ParseException e) {
+//			e.printStackTrace();
+//		}
 	
+		// Ordering result
+		for(Book b:bookRepository.findByTitleContainingOrderByTitleDesc("the")) {
+			System.out.println(b);
+		}
 		
 	}
 }

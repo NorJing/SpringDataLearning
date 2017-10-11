@@ -35,7 +35,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByTitleIgnoreCase(String title);
 	
 	// Relational Operations
-	
 	// Need to have implemented Comparable interface
 	public List<Book> findByPageCountEquals(int pageCount);
 	
@@ -62,4 +61,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByPublishDateBefore(Date date); 
 	
 	public List<Book> findByPublishDateBetween(Date date1, Date date2);
+	
+	// Ordering result
+	public List<Book> findByTitleContainingOrderByTitleAsc(String title);
+	
+	public List<Book> findByTitleContainingOrderByTitleDesc(String title);
 }
