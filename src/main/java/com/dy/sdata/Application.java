@@ -1,6 +1,8 @@
 package com.dy.sdata;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +13,7 @@ import com.dy.sdata.entities.Book;
 public class Application {
 
 	@SuppressWarnings("resource")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 		
 		// 1. Use BookService to create an entity
@@ -61,9 +63,21 @@ public class Application {
 //		}
 		
 		// Logical Operations
-		for(Book b:bookRepository.findByTitleNot("Tale")) {
-			System.out.println(b);
+//		for(Book b:bookRepository.findByTitleNot("Tale")) {
+//			System.out.println(b);
+//		}
+	
+		// Date comparasion
+		try {
+			Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/1954");
+			Date date2 = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/1955");
+			for(Book b:bookRepository.findByPublishDateBetween(date1, date2)) {
+				System.out.println(b);
+			}
+		}catch(ParseException e) {
+			e.printStackTrace();
 		}
+	
+		
 	}
-
 }
