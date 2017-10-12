@@ -91,8 +91,14 @@ public class Application {
 //			System.out.println(b);
 //		}
 		
-		for(Book b:bookRepository.findTop5ByTitleContainingOrderByPriceAsc("the")) {
+//		for(Book b:bookRepository.findTop5ByTitleContainingOrderByPriceAsc("the")) {
+//			System.out.println(b);
+//		}
+		
+		// Nested properties
+		for(Book b:bookRepository.findByAuthor_FirstName("John")) {
 			System.out.println(b);
 		}
+		
 	}
 }

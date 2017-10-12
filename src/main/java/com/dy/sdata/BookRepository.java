@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.dy.sdata.entities.Author;
 import com.dy.sdata.entities.Book;
 
 @Repository
@@ -79,5 +80,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findTop6ByOrderByPriceDesc();
 	
 	public List<Book> findTop5ByTitleContainingOrderByPriceAsc(String s);
+	
+	// Nested properties
+	public List<Book> findByAuthor_FirstName(String firstName);
+	
+	public List<Book> findByAuthorCountry(String country);
 	
 }
