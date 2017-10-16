@@ -96,7 +96,12 @@ public class Application {
 //		}
 		
 		// Nested properties
-		for(Book b:bookRepository.findByAuthor_FirstName("John")) {
+//		for(Book b:bookRepository.findByAuthor_FirstName("John")) {
+//			System.out.println(b);
+//		}
+
+		// JPQL
+		for(Book b:bookRepository.getBooksThatPageCountLargerThan(500)){
 			System.out.println(b);
 		}
 		

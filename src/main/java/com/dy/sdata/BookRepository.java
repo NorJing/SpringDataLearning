@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.dy.sdata.entities.Author;
@@ -85,5 +87,15 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByAuthor_FirstName(String firstName);
 	
 	public List<Book> findByAuthorCountry(String country);
+	
+	// JPQL
+	@Query("select b from Book b")
+	public List<Book> getAllBooks();
+	
+	@Query("select b from Book b where b.pageCount > ?1")
+	public List<Book> getBooksThatPageCountLargerThan(int pageCount);
+	
+	@Query("select b from Book b where b.title = :title")
+	public List<Book> getBooksThatTitleEqual(@Param("title") String title);
 	
 }

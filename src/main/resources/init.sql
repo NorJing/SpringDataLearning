@@ -16,7 +16,7 @@ insert into book(book_id, title, publish_date, page_count, price, author_id) val
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (4,'War and Peace', '1955-11-21', 400, 15.00,10);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (5,'The Grapes of Wrath', '1955-11-14', 350, 16.00,1);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (6,'Design Patterns', '1996-11-25', 120, 14.00,9);
-insert into book(book_id, title, publish_date, page_count, price, author_id) values (7,'A Tale of Two Cities', '1943-11-19', 270, 15.00,6);
+insert into book(book_id, title, publish_date, page_count, price, author_id) values (7,'A Tale of Two Cities', '1943-11-19', 870, 15.00,6);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (8,'Animal Farm', '1965-06-08', 126, 22.00,2);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (9,'Lord of the Flies', '1973-03-08', 300, 119.00,4);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (10,'Great Expectations', '1878-10-08', 140, 13.66,6);
