@@ -101,7 +101,12 @@ public class Application {
 //		}
 
 		// JPQL
-		for(Book b:bookRepository.getBooksThatPageCountLargerThan(500)){
+//		for(Book b:bookRepository.getBooksThatPageCountLargerThan(500)){
+//			System.out.println(b);
+//		}
+		
+		// Named query
+		for(Book b:bookRepository.getAllBooks()){
 			System.out.println(b);
 		}
 		

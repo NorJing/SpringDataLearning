@@ -89,7 +89,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByAuthorCountry(String country);
 	
 	// JPQL
-	@Query("select b from Book b")
+//	@Query("select b from Book b")
 	public List<Book> getAllBooks();
 	
 	@Query("select b from Book b where b.pageCount > ?1")
@@ -97,5 +97,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	@Query("select b from Book b where b.title = :title")
 	public List<Book> getBooksThatTitleEqual(@Param("title") String title);
+	
+	// Named query
 	
 }

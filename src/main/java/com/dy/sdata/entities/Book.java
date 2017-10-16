@@ -10,10 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "BOOK")
+@NamedQuery(name="BOOK.getAllBooks", query="select b from Book b")
 public class Book {
 
 	@Id
