@@ -1,9 +1,12 @@
 package com.dy.sdata;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -43,9 +46,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	// Need to have implemented Comparable interface
 	public List<Book> findByPageCountEquals(int pageCount);
 	
-	public List<Book> findByPageCountGreaterThan(int pageCount);
+	// public List<Book> findByPageCountGreaterThan(int pageCount);
 	
-	public List<Book> findByPageCountLessThan(int pageCount);
+	// public List<Book> findByPageCountLessThan(int pageCount);
 	
 	public List<Book> findByPageCountGreaterThanEqual(int pageCount);
 	
@@ -109,4 +112,12 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	// Sort result
 	public List<Book> findByPageCountGreaterThan(int pageCount, Sort sort);
 	
+	// Different return type
+	// public Collection<Book> findByPageCountGreaterThan(int pageCount);
+	
+	// public Iterable<Book> findByPageCountGreaterThan(int pageCount);
+	
+	// public Page<Book> findByPageCountLessThan(int pageCount, Pageable pageable);
+	
+	public Slice<Book> findByPageCountLessThan(int pageCount, Pageable pageable);
 }

@@ -22,5 +22,5 @@ insert into book(book_id, title, publish_date, page_count, price, author_id) val
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (10,'Great Expectations', '1878-10-08', 140, 13.66,6);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (11,'The Count of Monte Cristo', '1903-12-08', 160, 22.25,7);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (12,'The Scarlet Letter', '1957-10-08', 170, 16.00,8);
-insert into book(book_id, title, publish_date, page_count, price, author_id) values (13,'Hamlet', '1655-11-08', 180, 19.56,3);
+insert into book(book_id, title, publish_date, page_count, price, author_id) values (13,'Hamlet', '1655-11-08', 1180, 19.56,3);
 insert into book(book_id, title, publish_date, page_count, price, author_id) values (14,'The Old Man and the Sea', '1952-09-08', 190, 23.00,5);

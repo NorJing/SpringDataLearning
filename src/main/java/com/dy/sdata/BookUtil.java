@@ -35,7 +35,7 @@ public class BookUtil {
 		Book book = new Book();
 		book.setTitle(titles[ThreadLocalRandom.current().nextInt(1, titles.length)]);
 		book.setPrice(new BigDecimal(ThreadLocalRandom.current().nextInt(10, 1000)));
-		book.setPageCount(ThreadLocalRandom.current().nextInt(100, 1000));
+		book.setPageCount(ThreadLocalRandom.current().nextInt(600, 1000));
 		book.setPublishDate(new Date());
 		return book;
 	}

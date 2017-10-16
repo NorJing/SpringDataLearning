@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 
 import com.dy.sdata.entities.Book;
@@ -29,8 +31,8 @@ public class Application {
 		// Book book = bookRepository.findOne(1L);
 		// List<Book> books = bookRepository.findAll();
 		
-		List<Book> books = BookUtil.create(5);		
-		bookRepository.save(books);
+//		List<Book> books = BookUtil.create(5);		
+//		bookRepository.save(books);
 
 //		books = bookRepository.findAll();
 //		for(Book book1:books) {
@@ -122,12 +124,28 @@ public class Application {
 //		}
 		
 		// Sort result
-		for(Book b:bookRepository.findAll(new Sort(Sort.Direction.DESC, "author.lastName").and(new Sort(Sort.Direction.ASC, "pageCount")))){
+//		for(Book b:bookRepository.findAll(new Sort(Sort.Direction.DESC, "author.lastName").and(new Sort(Sort.Direction.ASC, "pageCount")))){
+//			System.out.println(b);
+//		}
+//		
+//		for(Book b:bookRepository.findByPageCountGreaterThan(200, new Sort("author.lastName"))){
+//			System.out.println(b);
+//		}
+		
+//		for(Book b:bookRepository.findByPageCountLessThan(500, new PageRequest(0, 20))) {
+//			System.out.println(b);
+//		}
+//		
+//		Page page = bookRepository.findByPageCountLessThan(500, new PageRequest(0, 20));
+//		// page=Page 0 of 1 containing com.dy.sdata.entities.Book instances
+//		System.out.println("page="+page.getTotalElements());
+		
+		Slice slice = bookRepository.findByPageCountLessThan(500, new PageRequest(0, 15));
+		System.out.println("slice="+slice.getContent());
+		
+		for(Book b:bookRepository.findByPageCountLessThan(500, new PageRequest(0, 15))) {
 			System.out.println(b);
 		}
 		
-		for(Book b:bookRepository.findByPageCountGreaterThan(200, new Sort("author.lastName"))){
-			System.out.println(b);
-		}
 	}
 }
