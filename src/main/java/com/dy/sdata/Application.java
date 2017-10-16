@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import com.dy.sdata.entities.Book;
 
@@ -106,9 +108,17 @@ public class Application {
 //		}
 		
 		// Named query
-		for(Book b:bookRepository.getAllBooks()){
+//		for(Book b:bookRepository.getAllBooks()){
+//			System.out.println(b);
+//		}
+		
+		// Paging result
+		for(Book b:bookRepository.findAll(new PageRequest(3, 5))){
 			System.out.println(b);
 		}
 		
+		for(Book b:bookRepository.findByPageCountGreaterThan(150, new PageRequest(1, 3))){
+			System.out.println(b);
+		}
 	}
 }

@@ -3,6 +3,7 @@ package com.dy.sdata;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -89,7 +90,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByAuthorCountry(String country);
 	
 	// JPQL
-//	@Query("select b from Book b")
+	@Query("select b from Book b")
 	public List<Book> getAllBooks();
 	
 	@Query("select b from Book b where b.pageCount > ?1")
@@ -99,5 +100,11 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> getBooksThatTitleEqual(@Param("title") String title);
 	
 	// Named query
+	// NamedQuery not really working. But it shows a concept.
+	
+	// Paging result
+	public List<Book> findByPageCountGreaterThan(int pageCount, Pageable pageable);
+	
+	// Sort result
 	
 }

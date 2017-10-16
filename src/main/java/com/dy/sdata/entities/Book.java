@@ -15,7 +15,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BOOK")
-@NamedQuery(name="BOOK.getAllBooks", query="select b from Book b")
 public class Book {
 
 	@Id
