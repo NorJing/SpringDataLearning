@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -106,5 +107,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	public List<Book> findByPageCountGreaterThan(int pageCount, Pageable pageable);
 	
 	// Sort result
+	public List<Book> findByPageCountGreaterThan(int pageCount, Sort sort);
 	
 }

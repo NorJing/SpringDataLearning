@@ -113,11 +113,20 @@ public class Application {
 //		}
 		
 		// Paging result
-		for(Book b:bookRepository.findAll(new PageRequest(3, 5))){
+//		for(Book b:bookRepository.findAll(new PageRequest(3, 5))){
+//			System.out.println(b);
+//		}
+//		
+//		for(Book b:bookRepository.findByPageCountGreaterThan(150, new PageRequest(1, 3))){
+//			System.out.println(b);
+//		}
+		
+		// Sort result
+		for(Book b:bookRepository.findAll(new Sort(Sort.Direction.DESC, "author.lastName").and(new Sort(Sort.Direction.ASC, "pageCount")))){
 			System.out.println(b);
 		}
 		
-		for(Book b:bookRepository.findByPageCountGreaterThan(150, new PageRequest(1, 3))){
+		for(Book b:bookRepository.findByPageCountGreaterThan(200, new Sort("author.lastName"))){
 			System.out.println(b);
 		}
 	}
