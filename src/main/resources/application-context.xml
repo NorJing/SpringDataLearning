@@ -13,7 +13,7 @@
 
 
 	<context:component-scan base-package="com.dy.sdata"/>
-	<jpa:repositories base-package="com.dy.sdata" repository-impl-postfix="CustomImpl"/>
+	<jpa:repositories base-package="com.dy.sdata" base-class="com.dy.sdata.ExtendedRepositoryImpl"/>
 	<tx:annotation-driven/>
 	
 	<jdbc:embedded-database id="dataSource" type="H2"/>

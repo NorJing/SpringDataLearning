@@ -149,9 +149,12 @@ public class Application {
 		
 		// Advanced JPA
 		// customizing repository behavior
-		Book book = BookUtil.create();
-		bookRepository.saveAndLog(book);
+//		Book book = BookUtil.create();
+//		bookRepository.saveAndLog(book);
 		
-		
+		// Global repository customization
+		for(Book b:bookRepository.findByIds(2L, 7L)) {
+			System.out.println(b);
+		}
 	}
 }

@@ -17,7 +17,7 @@ import com.dy.sdata.entities.Author;
 import com.dy.sdata.entities.Book;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long>, BookRepositoryCustom {
+public interface BookRepository extends BaseRepository<Book, Long> {
 	
 	// String Operations
 	
