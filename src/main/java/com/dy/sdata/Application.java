@@ -140,12 +140,18 @@ public class Application {
 //		// page=Page 0 of 1 containing com.dy.sdata.entities.Book instances
 //		System.out.println("page="+page.getTotalElements());
 		
-		Slice slice = bookRepository.findByPageCountLessThan(500, new PageRequest(0, 15));
-		System.out.println("slice="+slice.getContent());
+//		Slice slice = bookRepository.findByPageCountLessThan(500, new PageRequest(0, 15));
+//		System.out.println("slice="+slice.getContent());
+//		
+//		for(Book b:bookRepository.findByPageCountLessThan(500, new PageRequest(0, 15))) {
+//			System.out.println(b);
+//		}
 		
-		for(Book b:bookRepository.findByPageCountLessThan(500, new PageRequest(0, 15))) {
-			System.out.println(b);
-		}
+		// Advanced JPA
+		// customizing repository behavior
+		Book book = BookUtil.create();
+		bookRepository.saveAndLog(book);
+		
 		
 	}
 }
