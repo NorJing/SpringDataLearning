@@ -153,7 +153,7 @@ public class Application {
 //		bookRepository.saveAndLog(book);
 		
 		// Global repository customization
-		for(Book b:bookRepository.findByIds(2L, 7L)) {
+		for(Book b:bookRepository.findByIds(2L, 7L, 9L)) {
 			System.out.println(b);
 		}
 	}

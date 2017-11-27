@@ -16,8 +16,9 @@ public class BookRepositoryCustomImpl implements BookRepositoryCustom {
 	@Autowired
 	private EntityManager entityManager;
 	
-	@Override
+	// @Override
 	@Transactional
+	@SuppressWarnings("unchecked")
 	public void saveAndLog(Book book) {
 		// TODO Auto-generated method stub
 		logger.debug("Saving the book " + book.toString());

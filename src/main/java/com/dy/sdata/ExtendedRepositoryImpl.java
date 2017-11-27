@@ -10,7 +10,8 @@ import javax.persistence.Query;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
-public class ExtendedRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID>
+public class ExtendedRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> 
+											implements BaseRepository<T, ID> 
 {
 
 	private JpaEntityInformation<T, ?> entityInformation;
@@ -24,7 +25,8 @@ public class ExtendedRepositoryImpl<T, ID extends Serializable> extends SimpleJp
 	}
 
 	// put all functions in the class and share with all repositories
-	@Override
+	// @Override
+	@SuppressWarnings("unchecked")
 	public List<T> findByIds(ID...ids) {
 		// TODO Auto-generated method stub
 		Query query = this.entityManager.createQuery("select e from " + this.entityInformation.getEntityName() 
