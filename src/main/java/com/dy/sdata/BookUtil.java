@@ -6,37 +6,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.dy.sdata.entities.Book;
-
 public class BookUtil {
 
-	public static String[] titles = {
-			"book 1",
-			"book 2",
-			"book 3",
-			"book 4",
-			"book 5",
-			"book 6",
-			"book 7",
-			"book 8",
-			"book 9",
-			"book 10",
-	};
-	
-	public static List<Book> create(int size){
+	private static String[] titles = { "Don Quixote", "1984", "Adventures of Huckleberry Finn", "Ulysses",
+			"The Great Gatsby", "On The Road", "Catch 22", "To Kill A Mockingbird", "Brave New World",
+			"The Scarlet Letter" };
+
+	public static List<Book> create(int size) {
 		List<Book> books = new LinkedList<Book>();
-		for(int i=0; i < size; i++) {
+		for (int x = 0; x < size; x++) {
 			books.add(BookUtil.create());
 		}
 		return books;
 	}
-	
+
 	public static Book create() {
 		Book book = new Book();
 		book.setTitle(titles[ThreadLocalRandom.current().nextInt(1, titles.length)]);
-		book.setPrice(new BigDecimal(ThreadLocalRandom.current().nextInt(10, 1000)));
-		book.setPageCount(ThreadLocalRandom.current().nextInt(600, 1000));
+		book.setPageCount(ThreadLocalRandom.current().nextInt(100, 151));
 		book.setPublishDate(new Date());
+		book.setPrice(new BigDecimal("15.00"));
 		return book;
 	}
+	
 }

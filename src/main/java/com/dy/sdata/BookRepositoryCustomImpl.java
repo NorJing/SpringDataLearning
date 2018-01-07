@@ -5,10 +5,10 @@ import javax.persistence.EntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dy.sdata.entities.Book;
-
+@Repository
 public class BookRepositoryCustomImpl implements BookRepositoryCustom {
 
 	private static Logger logger = LoggerFactory.getLogger(BookRepositoryCustomImpl.class);
@@ -16,12 +16,11 @@ public class BookRepositoryCustomImpl implements BookRepositoryCustom {
 	@Autowired
 	private EntityManager entityManager;
 	
-	// @Override
+	@Override
 	@Transactional
-	@SuppressWarnings("unchecked")
 	public void saveAndLog(Book book) {
-		// TODO Auto-generated method stub
-		logger.debug("Saving the book " + book.toString());
+		// logger.debug("The application saves the book entity " + book.toString());
+		logger.info("Saving the book entity " + book.toString());
 		entityManager.persist(book);
 	}
 
