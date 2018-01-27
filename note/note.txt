@@ -1,0 +1,2 @@
+use sandbox;
+db.book.find({})
