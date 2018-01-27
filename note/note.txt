@@ -1,2 +1,16 @@
+# Mongo Demo
 use sandbox;
+db.book.find({})
+
+# Mongo authorization
+1. run bin/mongo with authorization enabled
+use admin # we need this?
+db.createUser({user:"admin",pwd:"password",roles:[{role:"root",db:"admin"}]}); # we need this?
+2. create credentials
+use sandbox;
+db.createUser({user:"books",pwd:"password",roles:[{role:"dbAdmin",db:"sandbox"}]});
+db.grantRolesToUser("books",[{role:"readWrite",db:"sandbox"}])
+3. run bin/mongo with authorization enabled
+db.auth("books","password")
+4. run the application to insert something to mongodb
 db.book.find({})

@@ -14,7 +14,7 @@ public class Application {
 		MongoClient client = (MongoClient)context.getBean("mongoClient");
 		DB db = client.getDB("sandbox");
 		DBCollection collection = db.getCollection("book");
-		collection.insert(new BasicDBObject().append("title", "Casablanca"));
+		collection.insert(new BasicDBObject().append("title", "Casablanca beach!"));
 	}
 	
 }
